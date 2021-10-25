@@ -1,0 +1,181 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.modal{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(42, 63, 100, 0.68);
+  z-index: 200;
+  transition: opacity 0.3s ease-in;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  &.show{
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  &__wrapper{
+    position: relative;
+    margin: 0 auto;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: $white;
+    box-shadow: 0 20px 44px rgba(32, 43, 61, 0.61);
+    width: 670px;
+  }
+  &__close{
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    cursor: pointer;
+    z-index: 200;
+    &:hover{
+      & svg{
+        stroke: $blue;
+        transition: 0.3s;
+      }
+    }
+    & svg{
+      stroke: $close-color;
+      transition: 0.3s;
+    }
+  }
+  &__form{
+    position: relative;
+  }
+  &__content{
+    padding: 15px 28px;
+  }
+  &__item{
+    margin: 20px 0 20px;
+    & .sort{
+      &__number{
+        position: relative;
+        width: 100%;
+        height: 32px;
+        &-item,
+        &-selected{
+          font-size: 12px;
+          font-weight: 400;
+          height: 32px;
+          padding: 0 38px 0 10px;
+        }
+        &-selected{
+          border-radius: 2px;
+          color: $blue;
+          overflow: hidden;
+          & span{
+            color: $gray;
+          }
+        }
+        &-list{
+          top: 32px;
+          max-height: 130px;
+        }
+      }
+    }
+    & .incident__files{
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    & .incident__file{
+      width: calc(33.33% - 16px);
+      margin-right: 24px;
+      &:nth-child(3n){
+        margin-right: 0;
+      }
+    }
+  }
+  &__footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 28px;
+    border-top: 1px solid $gray-blue-border;
+    & .btn-submit{
+      width: auto;
+      padding: 0 12px;
+    }
+  }
+  &__radio{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    & .radio{
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: auto;
+      height: auto;
+      margin: 0 20px 8px 0;
+      & input {
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        z-index: -1;
+        opacity: 0;
+        &:checked + .radio__box:before {
+          width: 13px;
+          height: 13px;
+          border: 1px solid $blue;
+        }
+        &:checked + .radio__box:after {
+          opacity: 1;
+          transition: opacity 0.5s;
+        }
+      }
+      &__box{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0;
+        border: none;
+        font-size: 13px;
+        text-align: left;
+        height: auto;
+        width: auto;
+        padding-left: 20px;
+        &:before{
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          background: linear-gradient($white, $gray-blue);
+          border: 1px solid $gray-blue-border;
+          width: 13px;
+          height: 13px;
+          border-radius: 50%;
+        }
+        &:after{
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 3px;
+          border-radius: 50%;
+          transform: translateY(-50%);
+          width: 7px;
+          height: 7px;
+          background-color: $blue;
+          opacity: 0;
+          transition: opacity 0.5s;
+        }
+      }
+    }
+  }
+  &__text{
+    font-size: 14px;
+    line-height: 24px;
+  }
+}

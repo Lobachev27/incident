@@ -1,0 +1,21 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.breadcrumbs{
+  position: relative;
+  display: block;
+  margin-bottom: 30px;
+  & span{
+    color: $gray;
+  }
+  &__link{
+    display: inline;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 18px;
+    color: $blue;
+    &:last-child{
+      color: $gray;
+    }
+  }
+}

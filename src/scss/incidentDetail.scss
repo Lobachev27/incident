@@ -1,0 +1,61 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.incidentDetail{
+  position: relative;
+  width: 100%;
+  padding: 40px 0;
+  & .container{
+    margin: 0;
+  }
+  & .incident__top{
+    margin-bottom: 20px;
+  }
+  & .incident__description{
+    font-size: 16px;
+    line-height: 28px;
+    margin-top: 16px;
+  }
+  & .creation__box{
+    margin-top: 40px;
+  }
+  &__list{
+    position: relative;
+    list-style: none;
+  }
+  &__item{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 2px;
+    padding: 12px 16px;
+    &:nth-child(odd){
+      background-color: $gray-blue;
+      & .operation__item-right.request{
+        background-color: $gray-blue;
+        &:before{
+          background: linear-gradient(to right, transparent, $gray-blue);
+        }
+      }
+    }
+    &:nth-child(even){
+      background-color: $white;
+      & .operation__item-right.request{
+        background-color: $white;
+      }
+    }
+    & .incident__author{
+      margin-right: 10px;
+    }
+    & .fake__item-time{
+      margin-left: 10px;
+    }
+    & .operation__item-right{
+      min-height: 32px;
+    }
+    & .fake__item-delete{
+      margin-left: 20px;
+    }
+  }
+}

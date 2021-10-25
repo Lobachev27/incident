@@ -1,0 +1,102 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.search{
+  position: relative;
+  width: 295px;
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: 18px;
+  &.filtered{
+    &:after{
+      content: '';
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background-color: $blue;
+      border: 1px solid $white;
+      transform: translate(50%, -50%);
+    }
+    & .icon-filter{
+      &:hover{
+        & + .search__tooltip{
+          opacity: 1;
+          visibility: visible;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
+  &__icon{
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s;
+    cursor: pointer;
+    & svg{
+      width: 16px;
+    }
+    &.icon-search{
+      left: 0;
+      cursor: default;
+      & svg{
+        fill: $blue;
+      }
+    }
+    &.icon-filter{
+      background-color: transparent;
+      right: 0;
+      border-radius: 0 4px 4px 0;
+      &:hover{
+        background-color: $gray-blue-border;
+      }
+      &.active{
+        background-color: $blue;
+        & svg{
+          fill: $white;
+        }
+      }
+      & svg{
+        fill: $black;
+      }
+    }
+  }
+  &__tooltip{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: -38px;
+    right: 20px;
+    font-size: 10px;
+    font-weight: 500;
+    height: 32px;
+    color: $white;
+    padding: 5px 8px;
+    border-radius: 4px;
+    background-color: rgba(10, 29, 52, 0.83);
+    text-align: center;
+    transform: translateX(114px);
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: 0.5s;
+    &:after{
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      right: 107px;
+      width: 0;
+      height: 0;
+      border: 6px solid transparent;
+      border-top: 6px solid rgba(10, 29, 52, 0.83);
+    }
+  }
+}

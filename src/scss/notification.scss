@@ -1,0 +1,113 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.notification{
+  position: fixed;
+  width: 330px;
+  top: 72px;
+  right: 16px;
+  max-height: calc(100vh - 88px);
+  z-index: 50;
+  &__close{
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+    z-index: 200;
+    &:hover{
+      & svg{
+        width: 12px;
+        height: 12px;
+        stroke: $blue;
+        transition: 0.3s;
+      }
+    }
+    & svg{
+      stroke: $close-color;
+      transition: 0.3s;
+    }
+  }
+  &__item{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $white;
+    border-radius: 6px;
+    box-shadow: -5px 15px 16px rgba(11, 66, 136, 0.16), 0 0 9px rgba(11, 66, 136, 0.07), -20px 4px 54px rgba(20, 37, 67, 0.09);
+    overflow: hidden;
+    margin-bottom: 16px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+    &.message{
+      & .notification__type{
+        background-color: $blue;
+      }
+    }
+    &.report{
+      & .notification__type{
+        background-color: #78c95a;
+      }
+    }
+  }
+  &__type{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 72px;
+    height: 72px;
+    min-width: 72px;
+    & i{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    & svg{
+      width: 40px;
+      height: 40px;
+      fill: $white;
+    }
+    &:after{
+      content: '';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: $yellow;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+    }
+  }
+  &__box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: calc(100% - 72px);
+    padding: 12px;
+  }
+  &__caption{
+    font-family: 'Ruda', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    line-height: 22px;
+    margin-bottom: 5px;
+  }
+  &__info{
+    display: flex;
+    align-items: center;
+  }
+  &__name{
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    & span{
+      color: $close-color;
+      margin: 0 2px;
+    }
+    & a{
+      color: $blue;
+    }
+  }
+}

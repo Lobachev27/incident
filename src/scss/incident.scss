@@ -1,0 +1,220 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.incident{
+  &__top{
+    display: flex;
+    align-items: center;
+  }
+  &__id{
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 6px;
+    background-color: $gray-blue;
+    border-radius: 2px;
+    border: 1px solid $gray-blue-border;
+    margin-right: 14px;
+  }
+  &__date{
+    position: relative;
+    font-size: 12px;
+    line-height: 16px;
+    color: $gray;
+    margin-right: 24px;
+    &:after{
+      content: '';
+      background-color: $gray;
+      width: 4px;
+      height: 4px;
+      position: absolute;
+      top: 50%;
+      right: -12px;
+      transform: translate(50%, -50%);
+      border-radius: 50%;
+    }
+  }
+  &__author{
+    font-size: 12px;
+    line-height: 16px;
+    color: $blue;
+  }
+  &__title{
+    font-family: 'Ruda', sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 32px;
+    margin-top: 12px;
+    & a{
+      &:hover{
+        & svg{
+          fill: $blue;
+          transition: 0.3s;
+        }
+      }
+    }
+    & svg{
+      fill: $close-color;
+      width: 16px;
+      height: 16px;
+      transition: 0.3s;
+    }
+  }
+  &__status{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $gray-blue;
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    margin: 24px 0;
+    &-text{
+      font-size: 12px;
+      font-weight: 500;
+    }
+    & .fake__item-type{
+      background-color: $white;
+      border-radius: 2px;
+      border: 1px solid $gray-blue-border;
+      padding: 3px 6px 3px 22px;
+      margin-right: auto;
+      margin-left: 12px;
+      &:before{
+        left: 6px;
+      }
+    }
+  }
+  &__tabs{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $gray-blue-border;
+  }
+  &__tab{
+    position: relative;
+    font-family: 'Ruda', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: $gray;
+    padding: 12px 0;
+    margin-right: 24px;
+    transition: 0.3s;
+    &.active{
+      color: $black;
+      transition: 0.3s;
+      &:before{
+        opacity: 1;
+        transition: 0.3s;
+      }
+    }
+    &:before{
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: $blue;
+      left: 0;
+      bottom: -1px;
+      opacity: 0;
+      transition: 0.3s;
+    }
+  }
+  &__wrap{
+    margin: 20px 0 48px;
+  }
+  &__description{
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 15px;
+  }
+  &__img{
+    border-radius: 8px;
+    overflow: hidden;
+    & img{
+      width: 100%;
+    }
+  }
+  &__files{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-top: 25px;
+  }
+  &__file{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(50% - 12px);
+    transition: 0.3s;
+    margin-bottom: 15px;
+    &:nth-last-child(1),
+    &:nth-last-child(2){
+      margin-bottom: 0;
+    }
+    &:hover{
+      & .incident__file-name{
+        color: $blue;
+        transition: 0.3s;
+      }
+    }
+    & img{
+      width: 53px;
+      min-width: 53px;
+    }
+    &-name,
+    &-info{
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 16px;
+      width: calc(100% - 60px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+    & a{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+  }
+  &__info{
+    &-list{
+      list-style: none;
+    }
+    &-item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      border-radius: 2px;
+      &:nth-child(odd){
+        background-color: $white;
+      }
+      &:nth-child(even){
+        background-color: $gray-blue;
+      }
+    }
+    &-name{
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 16px;
+      width: 120px;
+    }
+    &-value{
+      font-size: 12px;
+      line-height: 16px;
+      width: calc(100% - 135px);
+      & a{
+        color: $blue;
+      }
+    }
+  }
+}

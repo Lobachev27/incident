@@ -1,0 +1,47 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.information{
+  position: relative;
+  background-color: $white;
+  width: 470px;
+  min-width: 470px;
+  padding: 40px 30px;
+  &__top{
+    display: flex;
+    justify-content: flex-end;
+    & .act__comment-edit{
+      margin-right: 0;
+      margin-top: 30px;
+    }
+    & .btn-blue{
+      width: 120px;
+      margin-top: 20px;
+    }
+  }
+  &__back{
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 22px;
+    color: $blue;
+    cursor: pointer;
+    & i{
+      margin-right: 2px;
+    }
+    & svg{
+      width: 10px;
+      height: 10px;
+      fill: $blue;
+    }
+  }
+  & .incident__status{
+    margin: 12px 0 0;
+  }
+  & .incident__info-list{
+    margin-bottom: 40px;
+  }
+  & .act__tabs{
+    margin-top: 40px;
+  }
+  & .act__recommendation-item{}
+}

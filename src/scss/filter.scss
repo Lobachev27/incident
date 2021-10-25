@@ -1,0 +1,125 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.filter{
+  position: relative;
+  width: 100%;
+  background-color: $gray-blue;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 0 16px;
+  margin-top: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease-out, padding 0.5s ease-out, opacity 0.5s ease-out, margin 0.5s ease-out;
+  max-height: 0;
+  &.active{
+    border: 1px solid $gray-blue-border;
+    padding: 16px;
+    max-height: 175px;
+    opacity: 1;
+    margin-top: 25px;
+    overflow: visible;
+    transition: max-height 0.5s ease-in, padding 0.5s ease-in, opacity 0.5s ease-in, margin 0.5s ease-in;
+    z-index: 3;
+  }
+  & .fake__item-box{
+    min-height: 50px;
+  }
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 113px;
+    width: 20px;
+    height: 20px;
+    background-color: $gray-blue;
+    border: 1px solid $gray-blue-border;
+    z-index: -1;
+    transform: translate(50%, -50%) rotate(45deg);
+  }
+  &:after{
+    content: '';
+    position: absolute;
+    top: 1px;
+    right: 113px;
+    width: 19px;
+    height: 19px;
+    background-color: $gray-blue;
+    z-index: 0;
+    transform: translate(50%, -50%) rotate(45deg);
+  }
+  &__caption{
+    font-family: 'Ruda', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 28px;
+  }
+  &__list{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin-top: 12px;
+  }
+  &__item{
+    width: calc(20% - 19px);
+    z-index: 2;
+    & .sort{
+      &__number{
+        position: relative;
+        width: 100%;
+        height: 32px;
+        &-item,
+        &-selected{
+          font-size: 12px;
+          font-weight: 400;
+          height: 32px;
+          padding: 0 38px 0 10px;
+        }
+        &-selected{
+          border-radius: 2px;
+          color: $blue;
+          background-color: $white;
+          overflow: hidden;
+          & span{
+            color: $gray;
+          }
+        }
+        &-list{
+          top: 32px;
+          max-height: 130px;
+        }
+      }
+    }
+  }
+  &__name{
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 500;
+    letter-spacing: 0.29px;
+    margin-bottom: 7px;
+  }
+  &__buttons{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 16px;
+  }
+  &__close{
+    position: absolute;
+    top: 22px;
+    right: 16px;
+    cursor: pointer;
+    &:hover{
+      & svg{
+        stroke: $blue;
+        transition: 0.3s;
+      }
+    }
+    & svg{
+      stroke: $close-color;
+      transition: 0.3s;
+    }
+  }
+}

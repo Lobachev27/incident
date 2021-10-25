@@ -1,0 +1,47 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.actionDetail{
+  position: relative;
+  width: 100%;
+  padding: 40px 0;
+  & .container{
+    margin: 0;
+  }
+  & .incident__top{
+    margin-bottom: 20px;
+  }
+  & .act__parent{
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  &__box{
+    position: relative;
+    margin-top: 30px;
+    & .btn-add{
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-right: 0;
+      min-width: 207px;
+      & svg{
+        width: 12px;
+        height: 12px;
+        fill: $white;
+      }
+    }
+    & .act__recommendation-item{
+      padding: 16px;
+      &:hover{
+        & .newAct__box-change{
+          opacity: 1;
+          visibility: visible;
+          transition: opacity 0.3s;
+        }
+      }
+    }
+    & .newAct__box-change{
+      top: 16px;
+    }
+  }
+}

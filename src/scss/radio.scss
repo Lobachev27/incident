@@ -1,0 +1,66 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.radio{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  height: 26px;
+  margin-right: 12px;
+  & input {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: -1;
+    opacity: 0;
+    &:checked + .radio__box:before {
+      width: 32px;
+      height: 32px;
+      border: 1px solid $blue;
+      transition: border 0.5s, width 0.5s, height 0.5s;
+    }
+  }
+  &__box{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 2px solid $white;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    color: $black;
+    text-align: center;
+    height: 26px;
+    width: 26px;
+    cursor: pointer;
+    z-index: 2;
+    &.one{
+      background-color: $green;
+    }
+    &.two{
+      background-color: $yellow;
+    }
+    &.three{
+      background-color: $red2;
+    }
+    &.four{
+      background-color: $gray;
+    }
+    &:before{
+      content: '';
+      position: absolute;
+      border: 1px solid transparent;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      transition: border 0.5s, width 0.5s, height 0.5s;
+    }
+  }
+}
